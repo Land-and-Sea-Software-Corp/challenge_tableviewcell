@@ -1,12 +1,84 @@
-# Getting Started with Create React App
+# Implement a TableView Cell Prototyping Tool
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+We are looking for you to build a tool that allows users to prototype how a TableView Cell would look. This feature request consists of two parts: a form that allows a user to set specific attributes (defined below) that will be applied to a preview of the cell they are creating.
 
-## Available Scripts
+Please implement this feature using modern code formatting and best practices. That includes [React Hooks](https://reactjs.org/docs/hooks-intro.html), specifically useState, and use [React Bootstrap](https://react-bootstrap.github.io/components/alerts) components when necessary.
 
-In the project directory, you can run:
+---
 
-### `npm start`
+## Project Spec
+
+### UI
+- The screen should be split in half vertically
+  - Left half should contain a form that allows the user to configure their table view cell
+  - Right half should be a live preview of the cell they are configuring
+- The cell preview should be 375px wide, with a default height of 72px.
+
+
+### User Editable Attributes
+- Background Image
+  - The image should scale to fit the width, and the cell height should change to fit the image height
+    - i.e. If a 375x150px image is supplied, the cell should be 375x150px. If a 750x200px image is supplied, the cell should be 375x100px.
+- Layout: 1 or two lines of text
+  - If one line: This refers to a cell that has only one label / text box and a single input for text. However, the string could possibly wrap to multiple lines if it's longer than the width of the cell
+     - the height of the label should be the height of the cell, with the text vertically centered
+  - If two lines: there are two labels for text, with two separate fields in the form
+    - each label gets 50% of the cell height
+- label string value, line independent
+  - the fields for the second label should only be visible if the "two line" format is selected
+- Font Size, line independent
+- Text Color, line independent
+
+
+## Sample Cells
+### Single line cell
+![cell2.jpg](https://firebasestorage.googleapis.com/v0/b/clas-demo-2.appspot.com/o/file_images%2Fye1wXwvROc24Awzhjz0h1Z9U7z1Tv6%2Fcell2.jpg?alt=media&token=5ec16099-25c9-498a-915a-b304ab0dbc6c)
+
+### Double line cell
+![cell1](https://firebasestorage.googleapis.com/v0/b/clas-demo-2.appspot.com/o/file_images%2Fye1wXwvROc24Awzhjz0h1Z9U7z1Tv6%2Fcell1?alt=media&token=114730e8-af84-428d-a5c3-c322f3210d76)
+
+
+
+---
+## Starter App 
+Please complete this feature request using the starter app in this repository. It is an empty `create-react-app` app with two included helper components: `ColorSelector` and `ImagePicker`.
+
+### ColorSelector
+As you can imagine, this is a component that should allow you to quickly implement a color picker in the form. Below is a code snippet on how to use:
+```
+var color = "#0B3D91"
+function colorChangedAction(nameOfField, hexColorValue) {
+    color = hexColorValue
+}
+<ColorSelector
+    name="navColor" // the field name to associate the color to
+    color={color} // the color value currently selected
+    colorChanged={colorChangedAction} // the callback function when a color is picked
+/>
+```
+
+
+### ImagePicker
+This component will provide you with a way to quickly implement an image picker.
+```
+var previewImageData = "[base64 data string]"
+function onImageChange(nameOfField, imageData) {
+    previewImageData = imageData
+}
+<ImagePicker
+    name="backgroundImage" // the field name to associate the image data to
+    previewImage={previewImageData}
+    onChange={onImageChange} />
+```
+
+---
+### Install and run
+
+`npm install`
+
+Installs the couple dependencies required for this app to run
+
+`npm start`
 
 Runs the app in the development mode.\
 Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
@@ -14,57 +86,14 @@ Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 The page will reload if you make edits.\
 You will also see any lint errors in the console.
 
-### `npm test`
+---
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Submission
 
-### `npm run build`
+Please do all work on a new branch, and push to the remote repositiory on that branch on completion.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+---
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## Questions?
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+As you're working through the feature request, feel free to reach out on WhatsApp and Addison or Shannin with get back to you as they see them.
