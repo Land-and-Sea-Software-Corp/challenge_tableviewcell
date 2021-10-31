@@ -35,7 +35,7 @@ Please implement this feature using modern code formatting and best practices. T
 ![cell2.jpg](https://firebasestorage.googleapis.com/v0/b/clas-demo-2.appspot.com/o/file_images%2Fye1wXwvROc24Awzhjz0h1Z9U7z1Tv6%2Fcell2.jpg?alt=media&token=5ec16099-25c9-498a-915a-b304ab0dbc6c)
 
 ### Double line cell
-![cell1](https://firebasestorage.googleapis.com/v0/b/clas-demo-2.appspot.com/o/file_images%2Fye1wXwvROc24Awzhjz0h1Z9U7z1Tv6%2Fcell1?alt=media&token=114730e8-af84-428d-a5c3-c322f3210d76)
+![cell1](https://firebasestorage.googleapis.com/v0/b/clas-demo-2.appspot.com/o/file_images%2Fye1wXwvROc24Awzhjz0h1Z9U7z1Tv6%2Fcell1.jpg?alt=media&token=5c0c83af-f076-45d0-98e9-0dec626701fd)
 
 
 
