@@ -1,6 +1,6 @@
 # Implement a TableView Cell Prototyping Tool
 
-We are looking for you to build a tool that allows users to prototype how a TableView Cell would look. This feature request consists of two parts: a form that allows a user to set specific attributes (defined below) that will be applied to a preview of the cell they are creating.
+We are looking for you to build a tool that allows users to prototype how a TableView Cell would look. This feature request consists of a form that allows a user to set specific attributes (defined below), and a live preview of the cell they are creating.
 
 Please implement this feature using modern code formatting and best practices. That includes [React Hooks](https://reactjs.org/docs/hooks-intro.html), specifically useState, and use [React Bootstrap](https://react-bootstrap.github.io/components/alerts) components when necessary.
 
@@ -19,10 +19,10 @@ Please implement this feature using modern code formatting and best practices. T
 - Background Image
   - The image should scale to fit the width, and the cell height should change to fit the image height
     - i.e. If a 375x150px image is supplied, the cell should be 375x150px. If a 750x200px image is supplied, the cell should be 375x100px.
-- Layout: 1 or two lines of text
-  - If one line: This refers to a cell that has only one label / text box and a single input for text. However, the string could possibly wrap to multiple lines if it's longer than the width of the cell
+- Layout: 1 or 2 lines of text
+  - If 1 line: This refers to a cell that has only one label / text box and a single input for text. However, the string could possibly wrap to multiple lines if it's longer than the width of the cell
      - the height of the label should be the height of the cell, with the text vertically centered
-  - If two lines: there are two labels for text, with two separate fields in the form
+  - If 2 lines: there are two labels for text, with two separate fields in the form
     - each label gets 50% of the cell height
 - label string value, line independent
   - the fields for the second label should only be visible if the "two line" format is selected
