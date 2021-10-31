@@ -44,7 +44,8 @@ Please implement this feature using modern code formatting and best practices. T
 Please complete this feature request using the starter app in this repository. It is an empty `create-react-app` app with two included helper components: `ColorSelector` and `ImagePicker`.
 
 ### ColorSelector
-As you can imagine, this is a component that should allow you to quickly implement a color picker in the form. Below is a code snippet on how to use:
+As you can imagine, this is a component that should allow you to quickly implement a color picker in the form. Please use this component to implement any color picking.
+Below is a code snippet on how to use:
 ```
 var color = "#0B3D91"
 function colorChangedAction(nameOfField, hexColorValue) {
@@ -59,7 +60,9 @@ function colorChangedAction(nameOfField, hexColorValue) {
 
 
 ### ImagePicker
-This component will provide you with a way to quickly implement an image picker.
+This component will provide you with a way to quickly implement an image picker. The use of this component is not required, or feel free to modify this component to fit your needs.
+
+
 ```
 var previewImageData = "[base64 data string]"
 function onImageChange(nameOfField, imageData) {
