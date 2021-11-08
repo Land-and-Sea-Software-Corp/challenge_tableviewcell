@@ -6,21 +6,49 @@ import './Leftside.css';
 
 export const Leftside = (props) => {
 
-  const {imageUrl, setImageUrl, textColor, setTextColor, fontSize, setFontSize, layout, setLayout, firstLabel, setFirstLabel, setSecondLabel, secondLabel} = props
+  const {tableCell, setTableCell} = props
 
-  function onFileChange(data) {
+  function setFileChange(data) {
     let file = data.files[0]
     console.log(file)
-    setImageUrl(file.name)
+
+    tableCell.backgroundImage = file.name
   }
 
+  function setFormValue(changes) {
+    for(let key in changes)
+    {
+      switch (key) {
+        case 'backgroundImage':
+          setFileChange(changes[key])
+          break;
+        case 'layout':
+          tableCell.layout = changes[key]
+          break;
+        case 'mainLabelText':
+          tableCell.mainLabel.text = changes[key]
+          break;
+        case 'mainLabelFontSize':
+          tableCell.mainLabel.fontSize = changes[key]
+          break;
+        case 'mainLabelFontColor':
+          tableCell.mainLabel.fontColor = changes[key]
+          break;
+        case 'secondaryLabelText':
+          tableCell.secondaryLabel.text = changes[key]
+          break;
+        case 'secondaryLabelFontSize':
+          tableCell.secondaryLabel.fontSize = changes[key]
+          break;
+        case 'secondaryLabelFontColor':
+          tableCell.secondaryLabel.fontColor = changes[key]
+          break;
+      }
 
-  function changeSetting() {
-
-    console.log(textColor, fontSize, imageUrl, layout)
-
+      setTableCell({...tableCell, tableCell})
+      console.log(tableCell)
+    }
   }
-
 
   return (
     <div className="setting">
@@ -30,7 +58,7 @@ export const Leftside = (props) => {
             Background Image
           </Form.Label>
           <Col sm="8">
-            <Form.Control type="file" onChange={e => onFileChange(e.target)} />
+            <Form.Control type="file" onChange={e => setFormValue({backgroundImage: e.target})} />
           </Col>
         </Form.Group>
 
@@ -39,7 +67,7 @@ export const Leftside = (props) => {
             Layout
           </Form.Label>
           <Col sm="8">
-          <Form.Select onChange={e => setLayout(e.target.value)}>
+          <Form.Select onChange={e => setFormValue({layout: e.target.value})}>
             <option value="1">1 line</option>
             <option value="2">2 line</option>
           </Form.Select>
@@ -48,14 +76,10 @@ export const Leftside = (props) => {
 
         <Form.Group as={Row} className="mb-3" controlId="formPlaintextPassword">
           <Form.Label column sm="4">
-            Label String
+            Main Label
           </Form.Label>
           <Col sm="8">
-            <Form.Control type="text" placeholder="Label 1" defaultValue={firstLabel} onChange={(e) => setFirstLabel(e.target.value)} />
-          </Col>
-          <Col sm="4" />
-          <Col sm="8" style={{marginTop:'10px'}}>
-            <Form.Control type="text" placeholder="Label 2" defaultValue={secondLabel} onChange={(e) => setSecondLabel(e.target.value)} />
+            <Form.Control type="text" placeholder="main label" defaultValue={tableCell.mainLabel.text} onChange={(e) => setFormValue({mainLabelText: e.target.value})} />
           </Col>
         </Form.Group>
 
@@ -64,7 +88,7 @@ export const Leftside = (props) => {
             Font Size
           </Form.Label>
           <Col sm="8">
-            <Form.Control type="number" placeholder="Password" defaultValue={fontSize} onChange={(e) => setFontSize(e.target.value)} />
+            <Form.Control type="number" placeholder="Password" defaultValue={tableCell.mainLabel.fontSize} onChange={(e) => setFormValue({mainLabelFontSize: e.target.value})} />
           </Col>
         </Form.Group>
 
@@ -73,7 +97,34 @@ export const Leftside = (props) => {
             Text Color
           </Form.Label>
           <Col sm="8">
-            <Form.Control type="color" defaultValue="#563d7c" title="Choose color" onChange={(e) => setTextColor(e.target.value) } />
+            <Form.Control type="color" defaultValue={tableCell.mainLabel.fontColor} title="Choose color" onChange={(e) => setFormValue({mainLabelFontColor: e.target.value}) } />
+          </Col>
+        </Form.Group>
+
+        <Form.Group as={Row} className="mb-3" controlId="formPlaintextPassword">
+          <Form.Label column sm="4">
+            Secondary Label
+          </Form.Label>
+          <Col sm="8">
+            <Form.Control type="text" placeholder="secondary label" defaultValue={tableCell.secondaryLabel.text} onChange={(e) => setFormValue({secondaryLabelText: e.target.value})} />
+          </Col>
+        </Form.Group>
+        
+        <Form.Group as={Row} className="mb-3" controlId="formPlaintextPassword">
+          <Form.Label column sm="4">
+            Font Size
+          </Form.Label>
+          <Col sm="8">
+            <Form.Control type="number" placeholder="Password" defaultValue={tableCell.secondaryLabel.fontSize} onChange={(e) => setFormValue({secondaryLabelFontSize: e.target.value})} />
+          </Col>
+        </Form.Group>
+
+        <Form.Group as={Row} className="mb-3" controlId="formPlaintextPassword">
+          <Form.Label column sm="4">
+            Text Color
+          </Form.Label>
+          <Col sm="8">
+            <Form.Control type="color" defaultValue={tableCell.secondaryLabel.fontColor} title="Choose color" onChange={(e) => setFormValue({secondaryLabelFontColor: e.target.value}) } />
           </Col>
         </Form.Group>
       </Form>

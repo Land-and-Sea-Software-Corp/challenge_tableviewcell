@@ -1,10 +1,5 @@
 # Implement a TableView Cell Prototyping Tool
-
-We are looking for you to build a tool that allows users to prototype how a TableView Cell would look. This feature request consists of a form that allows a user to set specific attributes (defined below), and a live preview of the cell they are creating.
-
-Please implement this feature using modern code formatting and best practices. That includes [React Hooks](https://reactjs.org/docs/hooks-intro.html), specifically useState, and use [React Bootstrap](https://react-bootstrap.github.io/components/alerts) components when necessary.
-
----
+Please attention that you can only uploading images from public folder.
 
 ## Project Spec
 
@@ -90,13 +85,4 @@ The page will reload if you make edits.\
 You will also see any lint errors in the console.
 
 ---
-
-## Submission
-
-Please do all work on a new branch, and push to the remote repositiory on that branch on completion.
-
----
-
-## Questions?
-
-As you're working through the feature request, feel free to reach out on WhatsApp and Addison or Shannin with get back to you as they see them.
+### Screen capture
