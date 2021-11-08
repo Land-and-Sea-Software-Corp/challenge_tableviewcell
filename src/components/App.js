@@ -7,7 +7,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 
 function App(props) {
   const [tableCell, setTableCell] = useState({
-    backgroundImage: "image1.png",
+    backgroundImage: "",
     layout: '1',
     mainLabel: {
       text: "Queens Art Museum",
@@ -20,8 +20,6 @@ function App(props) {
       fontSize: 12
     }
   })
-
-  console.log(tableCell)
   
   return (
     <div className="App">

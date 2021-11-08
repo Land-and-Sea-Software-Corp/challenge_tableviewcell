@@ -9,10 +9,22 @@ export const Leftside = (props) => {
   const {tableCell, setTableCell} = props
 
   function setFileChange(data) {
-    let file = data.files[0]
-    console.log(file)
+    let file = data.files[0];
 
-    tableCell.backgroundImage = file.name
+    const reader = new FileReader();
+    reader.onload = function( e ) {
+        const uril = e.target.result;
+
+        tableCell.backgroundImage = uril;
+        setTableCell({...tableCell, tableCell})
+    }
+
+    if (file == null) {
+      tableCell.backgroundImage = "";    
+      setTableCell({...tableCell, tableCell})
+    } else {
+      reader.readAsDataURL(file);
+    }
   }
 
   function setFormValue(changes) {
@@ -21,7 +33,7 @@ export const Leftside = (props) => {
       switch (key) {
         case 'backgroundImage':
           setFileChange(changes[key])
-          break;
+          return;
         case 'layout':
           tableCell.layout = changes[key]
           break;
@@ -73,6 +85,7 @@ export const Leftside = (props) => {
           </Form.Select>
           </Col>
         </Form.Group>
+        <br />
 
         <Form.Group as={Row} className="mb-3" controlId="formPlaintextPassword">
           <Form.Label column sm="4">
@@ -100,6 +113,7 @@ export const Leftside = (props) => {
             <Form.Control type="color" defaultValue={tableCell.mainLabel.fontColor} title="Choose color" onChange={(e) => setFormValue({mainLabelFontColor: e.target.value}) } />
           </Col>
         </Form.Group>
+        <br />
 
         <Form.Group as={Row} className="mb-3" controlId="formPlaintextPassword">
           <Form.Label column sm="4">

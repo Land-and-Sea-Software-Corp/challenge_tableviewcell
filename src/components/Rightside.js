@@ -18,11 +18,10 @@ export const Rightside = (props) => {
 
   const [cellHeight, setCellHeight] = useState('72px')
 
-  console.log(tableCell.mainLabel.fontSize)
-
   useEffect(async () => {
     try {
-      const { width, height } = await reactImageSize('./background/' + imageUrl);
+      const { width, height } = await reactImageSize(imageUrl);
+      console.error('hihihi', width, height);
       let cellEles = document.getElementById('cell')
       let cellEleWidth = cellEles.offsetWidth
       let cellEleHeight = Math.floor(height * cellEleWidth / width)
@@ -31,13 +30,14 @@ export const Rightside = (props) => {
       console.log(cellHeight)
 
     } catch {
+      setCellHeight('72px')
       console.log("get image size error")
     }
   }, [imageUrl])
 
 
     return (
-      <div id="cell" style={{backgroundImage:'url(./background/'+imageUrl+')', backgroundSize:'100% auto', backgroundRepeat:'no-repeat', minHeight:cellHeight, width:'375px'}}>
+      <div id="cell" style={{backgroundImage:`url(${imageUrl})`, backgroundSize:'100% auto', backgroundRepeat:'no-repeat', minHeight:cellHeight, width:'375px'}}>
         {
           layout == '1'?
             <p style={{wordBreak: 'break-word', margin:'0', fontWeight:'bold', fontSize:mainLabelSize+'px', color:mainLabelColor}}> {mainLabelText} </p> 
